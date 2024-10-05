@@ -177,6 +177,7 @@ class Llama:
         eos_reached = torch.tensor([False] * bsz, device="cuda")
         input_text_mask = tokens != pad_id
         if min_prompt_len == total_len:
+            ## forward 就是做inference
             logits = self.model.forward(tokens, prev_pos)
             token_logprobs = -F.cross_entropy(
                 input=logits.transpose(1, 2),
