@@ -126,6 +126,8 @@ class Llama:
         self.model = model
         self.tokenizer = tokenizer
 
+    ## 这是主方法，从这里开始看
+    
     @torch.inference_mode()
     def generate(
         self,
